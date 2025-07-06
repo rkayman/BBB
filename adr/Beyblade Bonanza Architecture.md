@@ -198,31 +198,47 @@ A dual-platform (iOS Swift + Web) learning-centered Beyblade X game featuring ag
 - **Progress Tracking**: Detailed analytics on learning objective mastery
 - **Feedback Loops**: Immediate reinforcement and explanation of concepts
 
-## 🚀 Development Phases
+## 🎯 iOS-First Architecture Decisions
+
+### **Single Process, Shared Physics**
+- **All managers and engines** run in same iOS app process
+- **Shared Physics Engine instance** called directly by Battle Orchestration Manager
+- **Real-time 60fps simulation** with built-in randomness for "X-factor" moments
+- **Educational explanations** generated from physics engine's internal calculations
+- **Non-deterministic results** - same setup can have different outcomes for excitement
+
+### **Physics Engine Capabilities**
+- **Real-time Simulation**: 60fps battle visualization with authentic Beyblade X mechanics
+- **Educational Reporting**: Detailed breakdowns of momentum, collision forces, and strategy effectiveness
+- **X-Factor Integration**: Random elements that allow David vs. Goliath victories
+- **Part Synergy Modeling**: Complex interactions between Blade + Ratchet + Bit combinations
+- **Xtreme Line Physics**: Accurate high-speed momentum transfer for Extreme Finishes
+
+## 🚀 iOS Development Phases
 
 ### **Phase 1: Core Foundation (Months 1-3)**
-- Resource and Resource Access layers implementation
-- Basic physics engine with simple collision detection
-- Fundamental part system (Blade, Ratchet, Bit)
-- Core UI framework for both platforms
+- **Resource and Resource Access layers** with Beyblade X part specifications
+- **Basic physics engine** with collision detection and momentum calculations
+- **Fundamental part system** (Blade, Ratchet, Bit) with synergy modeling
+- **SwiftUI framework** with Metal Performance Shaders integration
 
 ### **Phase 2: Educational Integration (Months 4-6)**
-- Educational Content Engine implementation
-- Age-adaptive question systems
-- Basic Beycoins economy
-- Learning progress tracking
+- **Educational Content Engine** with pre-generated, dynamically-adapted question sets
+- **Age-adaptive learning tracks** (5-7, 8-10, 11-15) with appropriate complexity
+- **Beycoins economy system** with earning/spending mechanics
+- **Physics explanation system** that shows calculations behind battle outcomes
 
-### **Phase 3: Battle System (Months 7-9)**
-- Full physics simulation with Xtreme Line
-- AI opponent system
-- Battle analytics and feedback
-- Tournament and campaign modes
+### **Phase 3: Real-Time Battle System (Months 7-9)**
+- **Full physics simulation** with Xtreme Line mechanics and stadium interactions
+- **AI opponent system** with strategic decision-making and personality variations
+- **X-factor randomness** integrated into physics calculations
+- **Battle analytics and educational feedback** with detailed explanations
 
-### **Phase 4: Multiplayer & Polish (Months 10-12)**
-- Real-time multiplayer battles
-- Advanced AI behaviors
-- Full analytics dashboard
-- App Store optimization and launch preparation
+### **Phase 4: Polish & App Store (Months 10-12)**
+- **Advanced AI behaviors** and tournament/campaign modes
+- **Complete educational dashboard** with progress tracking
+- **Performance optimization** for older iOS devices
+- **App Store submission** and launch preparation
 
 ## 📊 Success Metrics
 
