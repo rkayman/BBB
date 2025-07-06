@@ -88,6 +88,26 @@ A dual-platform (iOS Swift + Web) learning-centered Beyblade X game featuring ag
 - **Logging and Analytics**
 - **Platform Abstraction Layer**
 - **Localization Support**
+- **Message Bus** (for Manager-to-Manager communication only)
+
+## 🔄 Corrected Communication Patterns
+
+### **Direct Calls (Same Process Space)**
+- **Manager → Engine**: Direct method calls (Strategy pattern)
+- **Manager → ResourceAccess**: Direct method calls
+- **Engine → ResourceAccess**: Direct method calls
+- **Any Layer → Utilities**: Direct method calls
+
+### **Message Queue/Topic (Cross-Process)**
+- **Manager → Manager**: Only when use cases are truly independent and deferred
+  - **Message Queue**: When Manager A always calls specific Manager B (1:1)
+  - **Topic (Pub/Sub)**: When Manager A broadcasts to multiple Managers (1:N)
+
+### **Examples in Our Game:**
+- **Battle Orchestration Manager → Physics Engine**: Direct call (same use case)
+- **Economy Manager → Battle Analytics Engine**: Direct call (same workflow)
+- **Game State Manager → Educational Content Manager**: Message queue (deferred learning triggers)
+- **Battle Completion → Achievement System**: Topic/Pub-Sub (multiple systems care about battle outcomes)
 
 ## 🎮 Game Mode Architecture
 
