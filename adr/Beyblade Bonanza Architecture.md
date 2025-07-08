@@ -24,9 +24,10 @@ A dual-platform (iOS Swift + Web) learning-centered Beyblade X game featuring ag
   - Part purchasing and inventory
   - Achievement rewards
 - **Educational Content Manager**
-  - Age-appropriate question delivery
-  - Difficulty scaling algorithms
+  - Age-appropriate question delivery workflow
+  - Learning module coordination and sequencing
   - Progress tracking per learning domain
+  - Performance analytics and learning outcome tracking
 - **Battle Orchestration Manager**
   - Match-making for head-to-head
   - Tournament bracket management
@@ -34,21 +35,22 @@ A dual-platform (iOS Swift + Web) learning-centered Beyblade X game featuring ag
 
 #### **3. Engines Layer** (Medium Volatility)
 - **Physics Simulation Engine**
-  - Beyblade movement and collision detection
+  - Real-time Beyblade movement and collision detection
   - Xtreme Line interactions and Extreme Finishes
-  - Stadium physics (slopes, pockets, momentum)
+  - Stadium physics with X-factor randomness integration
+  - Educational calculation tracking for post-battle explanations
 - **AI Opponent Engine**
-  - Dynamic difficulty adjustment
-  - Strategic decision-making algorithms
-  - Behavioral patterns for different skill levels
+  - Personality-based decision making (Strategist, Rusher, Wall, Experimenter, Mentor, Rival)
+  - Dynamic difficulty adjustment based on player progression
+  - Behavioral pattern systems for recognition and counter-strategy learning
 - **Educational Content Engine**
-  - Question generation and validation
-  - Adaptive learning algorithms
-  - Performance analytics
-- **Battle Analytics Engine**
-  - Combat effectiveness calculations
-  - Strategic decision analysis
-  - David vs. Goliath probability modeling
+  - Age-adaptive question generation with financial literacy integration
+  - Difficulty scaling algorithms and adaptive learning logic
+  - Post-battle explanation systems with physics breakdowns
+- **Healthy Technology Engine**
+  - Time tracking and progressive reward reduction algorithms
+  - Break encouragement messaging systems
+  - Holiday/special event detection for clutch moment frequency adjustment
 
 #### **4. Resource Access Layer** (Low Volatility)
 - **Beyblade Part Repository**
@@ -84,11 +86,11 @@ A dual-platform (iOS Swift + Web) learning-centered Beyblade X game featuring ag
 
 #### **6. Utilities Layer** (Cross-cutting)
 - **Authentication Service**
-- **Data Validation Utilities**
+- **Data Validation Utilities**  
 - **Logging and Analytics**
 - **Platform Abstraction Layer**
 - **Localization Support**
-- **Message Bus** (for Manager-to-Manager communication only)
+- **Message Bus** (supports both message queues for 1:1 Manager communication and pub/sub topics for 1:N event broadcasting)
 
 ## 🔄 Corrected Communication Patterns
 
@@ -103,11 +105,14 @@ A dual-platform (iOS Swift + Web) learning-centered Beyblade X game featuring ag
   - **Message Queue**: When Manager A always calls specific Manager B (1:1)
   - **Topic (Pub/Sub)**: When Manager A broadcasts to multiple Managers (1:N)
 
-### **Examples in Our Game:**
-- **Battle Orchestration Manager → Physics Engine**: Direct call (same use case)
-- **Economy Manager → Battle Analytics Engine**: Direct call (same workflow)
-- **Game State Manager → Educational Content Manager**: Message queue (deferred learning triggers)
-- **Battle Completion → Achievement System**: Topic/Pub-Sub (multiple systems care about battle outcomes)
+### **Message Queue (Direct 1:1)**
+- **Economy Manager → Player Data Manager**: Always updates specific player's currency/progress
+- **Game State Manager → Educational Content Manager**: Triggers learning content after battles
+
+### **Topic-Based (Pub/Sub 1:N)**
+- **Battle Completion Events**: Multiple managers need battle outcome data (Economy, Achievement, Educational, Analytics)
+- **Player Level Up Events**: Triggers unlocks, congratulations, new content access
+- **Healthy Technology Alerts**: Time warnings broadcast to UI and analytics systems
 
 ## 🎮 Game Mode Architecture
 
